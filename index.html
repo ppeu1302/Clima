@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Clima</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="theme-auto">
+  <div class="container">
+    <header class="header">
+      <h1>Clima agora</h1>
+      <button id="toggleTema" class="theme-btn" aria-label="Alternar tema">🌗</button>
+    </header>
+
+    <div class="search">
+      <input type="text" id="cidade" placeholder="São Paulo, BR" />
+      <button id="btn">Buscar</button>
+    </div>
+
+    <div id="msg" class="msg hidden" role="status"></div>
+    <div id="loader" class="loader hidden" aria-live="polite" aria-label="Carregando"></div>
+
+    <section id="resultado" class="card"></section>
+
+    <section id="extras" class="extras card hidden">
+      <div class="sun">
+        <div>🌅 <span id="nascer"></span></div>
+        <div>🌇 <span id="por"></span></div>
+      </div>
+    </section>
+
+    <section id="forecast" class="forecast card hidden">
+      <h2>Previsão (5 dias)</h2>
+      <div id="forecastGrid" class="forecast-grid"></div>
+    </section>
+  </div>
+
+  <script defer src="./script.js"></script>
+</body>
+</html>

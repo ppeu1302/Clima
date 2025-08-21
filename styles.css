@@ -1,0 +1,130 @@
+/* Reset essencial */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root{
+  --bg: #0f172a;         /* slate-900 */
+  --fg: #ffffff;
+  --muted: rgba(255,255,255,0.8);
+  --card: rgba(255,255,255,0.08);
+  --btn-bg: #ffffff;
+  --btn-fg: #1f2937;
+  --ok: #10b981;
+  --warn: #f59e0b;
+  --err: #ef4444;
+}
+body.theme-light{
+  --bg:#f8fafc;          /* slate-50 */
+  --fg:#0f172a;
+  --muted:#334155;
+  --card:#ffffff;
+  --btn-bg:#0f172a;
+  --btn-fg:#ffffff;
+}
+body{
+  min-height:100vh;
+  color: var(--fg);
+  background: var(--bg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+  display:flex; align-items:center; justify-content:center;
+  padding: 20px;
+}
+
+.container{
+  width: 100%;
+  max-width: 720px;
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.header{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom: 12px;
+}
+.header h1{ font-size: 1.6rem; }
+
+.theme-btn{
+  border:none; border-radius: 12px; cursor:pointer;
+  padding: 8px 10px; font-size: 1rem;
+  background: var(--btn-bg); color: var(--btn-fg);
+}
+
+.search{
+  display:flex; gap:10px; margin-top: 8px; margin-bottom: 10px;
+}
+.search input{
+  flex:1; padding:12px; border-radius:10px; border:none;
+  background:#ffffff; color:#111827;
+}
+.search button{
+  padding:12px 14px; border:none; border-radius:10px; cursor:pointer;
+  background: var(--btn-bg); color: var(--btn-fg); font-weight:600;
+}
+
+.msg{
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  background: rgba(239, 68, 68, 0.15); /* err */
+  color: var(--fg);
+  border: 1px solid rgba(239,68,68,0.35);
+}
+.msg.ok{
+  background: rgba(16, 185, 129, 0.15); /* ok */
+  border-color: rgba(16,185,129,0.35);
+}
+.hidden{ display:none; }
+
+/* Card genérico */
+.card{
+  margin-top: 14px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+/* Loader circular */
+.loader {
+  width: 48px;
+  height: 48px;
+  margin: 10px auto 0;
+  border: 4px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin{ to { transform: rotate(360deg); } }
+
+/* Resultado atual */
+#resultado img{ display:block; margin: 8px 0; }
+
+/* Nascer/Pôr do sol */
+.extras .sun{
+  display:flex; gap:16px; flex-wrap:wrap;
+  font-size: 1rem;
+}
+
+/* Forecast */
+.forecast h2{ font-size:1.2rem; margin-bottom:10px; }
+.forecast-grid{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.day{
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 10px;
+  text-align:center;
+}
+.day img{ display:block; margin: 4px auto; }
+.day .date{ font-weight:700; margin-bottom:6px; }
+.day .range{ font-size: 0.95rem; }
+
+/* Responsivo */
+@media (max-width: 640px){
+  .forecast-grid{ grid-template-columns: repeat(2, 1fr); }
+}
