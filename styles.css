@@ -1,7 +1,7 @@
-/* Reset essencial */
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root{
-  --bg: #0f172a;         /* slate-900 */
+  --bg: #0f172a;         
   --fg: #ffffff;
   --muted: rgba(255,255,255,0.8);
   --card: rgba(255,255,255,0.08);
@@ -12,7 +12,7 @@
   --err: #ef4444;
 }
 body.theme-light{
-  --bg:#f8fafc;          /* slate-50 */
+  --bg:#f8fafc;          
   --fg:#0f172a;
   --muted:#334155;
   --card:#ffffff;
@@ -78,7 +78,7 @@ body{
 }
 .hidden{ display:none; }
 
-/* Card genérico */
+
 .card{
   margin-top: 14px;
   background: rgba(0,0,0,0.15);
@@ -98,7 +98,6 @@ body{
 }
 @keyframes spin{ to { transform: rotate(360deg); } }
 
-/* Resultado atual */
 #resultado img{ display:block; margin: 8px 0; }
 
 /* Nascer/Pôr do sol */
@@ -107,7 +106,7 @@ body{
   font-size: 1rem;
 }
 
-/* Forecast */
+
 .forecast h2{ font-size:1.2rem; margin-bottom:10px; }
 .forecast-grid{
   display:grid;
@@ -124,7 +123,7 @@ body{
 .day .date{ font-weight:700; margin-bottom:6px; }
 .day .range{ font-size: 0.95rem; }
 
-/* Responsivo */
+
 @media (max-width: 640px){
   .forecast-grid{ grid-template-columns: repeat(2, 1fr); }
 }

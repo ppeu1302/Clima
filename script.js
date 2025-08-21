@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
     return elapsedMin <= THEME_OVERRIDE_TTL_MIN;
   }
   function aplicarTemaAutoIfAllowed(isDay){
-    // Só aplica auto se o usuário NÃO tiver trocado manualmente há pouco
+    // Só aplica auto se o usuário não tiver trocado manualmente há pouco
     if (!manualThemeIsFresh()) {
       aplicarTema(isDay ? "light" : "dark");
     }
@@ -112,7 +112,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // ===== Parser de entrada: aceita "Cidade,PAIS" (2 letras) ou cai em ",BR"
   function montarQueryCidade(entrada){
-    // Ex.: "Lisboa,PT" | "New York, US" | "Taubaté" → "Taubaté,BR"
     const raw = String(entrada || "").trim();
     if (!raw) return null;
 
@@ -120,7 +119,6 @@ window.addEventListener("DOMContentLoaded", () => {
     if (partes.length >= 2) {
       const cidade = partes[0].trim();
       const pais   = partes[1].trim().toUpperCase(); // aceita "pt", "PT", " pt  "
-      // país de 2 letras (ISO 3166-1 alpha-2)
       if (/^[A-Z]{2}$/.test(pais)) {
         return `${cidade},${pais}`;
       }
@@ -157,7 +155,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
 
       // Clima atual
-      const icone = dados.weather?.[0]?.icon || "01d";         // ex.: "01d" | "10n"
+      const icone = dados.weather?.[0]?.icon || "01d";         
       const urlIcone = `https://openweathermap.org/img/wn/${icone}@2x.png`;
       const isDay = icone.endsWith("d");
       const main = (dados.weather?.[0]?.main || "").toLowerCase();
@@ -200,7 +198,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ===== Forecast 5 dias
   async function carregarPrevisao(query){
     const q = encodeURIComponent(query);
     const urlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${q}&appid=${API_KEY}&lang=pt_br&units=metric`;
